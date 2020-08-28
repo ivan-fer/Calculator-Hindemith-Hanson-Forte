@@ -9,16 +9,16 @@
  * @returns {Forte}
  */
 function Forte(name, prime, card, vi) {
-   this.sName = name;     // Set Name; el nombre según Allen Forte.
+   this.sName = name;     // Set Name; el nombre segÃºn Allen Forte.
    this.fPrime = prime;   // Prime Form; forma prima
    this.cardinal = card;  // la cantidad de pc que lo componen.
 
    this.zMate = null;     // el z de este pcs
-   this.vi = vi;          // vector interválico
+   this.vi = vi;          // vector intervÃ¡lico
 }
 
 /*
- * Código gracias a Carlos Benítez: http://www.etnassoft.com/2011/06/24/array-unique-eliminar-valores-duplicados-de-un-array-en-javascript/
+ * 
  * @type Function|Function
  */
 Array.prototype.unique = function (a) {
@@ -29,7 +29,7 @@ Array.prototype.unique = function (a) {
    return c.indexOf(a, b + 1) < 0;
 });
 /**
- * código mio.
+ * cÃ³digo mio.
  * @returns {Array.prototype@call;slice}
  */
 Array.prototype.clone = function () {
@@ -79,7 +79,7 @@ function getPCS(acorde) {
 
 function getRotations(pcs) {
    var rots = new Array();                // todas las rotaciones del pcs.
-   rots[0] = pcs.clone();                 // el original también va.
+   rots[0] = pcs.clone();                 // el original tambiÃ©n va.
 
    var temp = rots[0].clone();            // obtengo una copia del array.
    for (var i = 1; i < pcs.length; i++) {
@@ -102,11 +102,11 @@ function getPrefPCS(rots) {
    var j = 0;
    for (var i = 0; i < d.length; i++) {
       if (d[i] === min) {
-         vals[j] = rots[i].clone();     // me quedo con las rotaciones que tienen la mínima distancia.
+         vals[j] = rots[i].clone();     // me quedo con las rotaciones que tienen la mÃ­nima distancia.
          j++;
       }
    }
-   // aquí empiezo a chequear distancia del primero con el segundo, con el tercero, etc. hasta que obtenga 1.
+   // aquÃ­ empiezo a chequear distancia del primero con el segundo, con el tercero, etc. hasta que obtenga 1.
    var end = 1;
    while (end < vals[0].length && vals.length > 1) {
       d = getArrayOfDistances(vals, 0, end);
@@ -115,7 +115,7 @@ function getPrefPCS(rots) {
       j = 0;
       for (var i = 0; i < d.length; i++) {
          if (d[i] === min) {
-            temp[j] = vals[i].clone();     // me quedo con las rotaciones que tienen la mínima distancia.
+            temp[j] = vals[i].clone();     // me quedo con las rotaciones que tienen la mÃ­nima distancia.
             j++;
          }
       }
@@ -435,62 +435,3 @@ pcs9[8] = new Forte("9-9", "0,1,2,3,5,6,7,8,10", 9, "");
 pcs9[9] = new Forte("9-10", "0,1,2,3,4,6,7,9,10", 9, "");
 pcs9[10] = new Forte("9-11", "0,1,2,3,5,6,7,9,10", 9, "");
 pcs9[11] = new Forte("9-12", "0,1,2,4,5,6,8,9,10", 9, "");
-
-
-/*
- * EXPLICACIÓN DEL CÓDIGO ANTERIOR:
- guzman
- a ver si he entendido como funciona esto
- con “Array.prototype.unique” añadimos al prototipo de array una nueva funcion unique
- 
- esta funcion espera un parametro “a” y llama a la funcion “filter” de array
- la funcion filter() de los array crea un nuevo array, con todos los elementos que cumplen ciertos requisitos
- 
- los requisitos se indican con una funcion que se pasa como parametro a filter
- osea “array.filter(funcion_que_dice_si_un_elemento_va_a_estar_en_el_array_devuelto)”
- // para mas detalles
- //http://www.tutorialspoint.com/javascript/array_filter.htm
- 
- asi que cuando escribamos “myArr.unique() ” se llama a:
- 
- function(a){
- return function(){
- return this.filter(a)
- }
- }
- con esto claro viene la segunda parte,
- 
- despues de la defincion de la funcion hay unos parentesis por lo que la funcion es auto ejecutable
- asi que se añade ella sola al prototipo
- 
- (
- function(a,b,c){
- return c.indexOf(a,b+1)<0
- }
- );
- por ultimo:
- 
- como parametro se manda una funcion
- 
- function(a,b,c){
- return c.indexOf(a,b+1)<0
- }
- que es la que espera el metodo filter, como siempre nos hacen trampa estos del javascript y la funcion filter espera tres parametros que si no nos dicen lo que significa cada uno nos va a parecer chino, pero si nos dicen: filter(element, index, array) pues esta mas claro
- 
- asi que la funcion lo que hace es mira a ver si en el array que estoy construyendo ya esta el elemento siguiente
- 
- c= array que estoy construyendo
- a= elemento que estoy mirando a ver si lo añado
- b= indice del elemento
- indexOf = el elemento esta en el array
- <0 = el indexOf devuelve -1 si el elemento no esta
- 
- convertido a cristiano:
- 
- function(elemento_a_mirar_si_añado_al_array,indice_del_elemeno_que_estoy_mirando,array_con_los_elementos_ya_añadidos){
- return array_con_los_elementos_ya_añadidos.indexOf(
- elemento_a_mirar_si_añado_al_array,
- indice_del_elemeno_que_estoy_mirando+1
- )<0
- }
- */
