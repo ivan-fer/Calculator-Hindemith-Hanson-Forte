@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Hindemith chord Root calculator</title>
+			<link rel="shortcut icon" href="../../img/icon_up2.gif">
+      <link href="hhf-style.css" rel="stylesheet" type="text/css">
+      <script src="hindemith.js"></script>
+      <script src="forte.js"></script>
+      <script src="piano.js"></script>
+   </head>
+   <body>
+      <header>
+         <div class="wrapper">
+					<h2>iván f. la banca</h2>      	
+         <nav> 
+  	    	<a href="../../index.html">HOME</a> 
+          <a href="../../sobre-mi.html">ABOUT</a>
+            <a href="../../obras.html">WORKS</a> 
+            <a href="../../media.html">MEDIA</a>
+            <a id="active" href="../../proyectos.html">PROYECTS</a>
+            <a href="#">CONTACT</a>
+	      </nav>
+            <h1>Hindemith - Hanson - Forte Calculator</h1>
+         </div>
+      </header>
+
+      <section>
+         <div class="wrapper">
+            <article>
+               <h3>Chord Entry</h3>
+               <div class="piano">
+                  <canvas id="canvas" height="81" width="359">
+                     <p>Su navegador no soporta Canvas!</p>
+                  </canvas>
+               </div>
+               <div>
+                  <form name="entries" id="entries">
+                     <table width="100%">
+                        <tr>
+                           <td><div align="center">0</div></td>
+                           <td><div align="center">1</div></td>
+                           <td><div align="center">2</div></td>
+                           <td><div align="center">3</div></td>
+                           <td><div align="center">4</div></td>
+                           <td><div align="center">5</div></td>
+                           <td><div align="center">6</div></td>
+                           <td><div align="center">7</div></td>
+                           <td><div align="center">8</div></td>
+                           <td><div align="center">9</div></td>
+                           <td><div align="center">10</div></td>
+                           <td><div align="center">11</div></td>
+                        </tr>
+                        <tr>
+                           <td><div align="center">
+                                 <input onClick="chbSalida('0');" type="checkbox" name="pc0" id="0">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox"  onClick="chbSalida('1');" name="pc1" id="1">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox"  onClick="chbSalida('2');" name="pc2" id="2">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('3');" name="pc3" id="3">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('4');" name="pc4" id="4">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('5');" name="pc5" id="5">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('6');" name="pc6" id="6">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('7');" name="pc7" id="7">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('8');" name="pc8" id="8">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('9');" name="pc9" id="9">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('t');" name="pc10" id="t">
+                              </div></td>
+                           <td><div align="center">
+                                 <input type="checkbox" onClick="chbSalida('e');" name="pc11" id="e">
+                              </div></td>
+                        </tr>
+                     </table>
+                     <table align="right">
+                        <tr>
+                           <td>Chord: </td>
+                           <td><input type="text" name="txtChord" disabled></td>
+                           <td>
+                              <input type="button" name="btnGo" value="   Go   " onClick="calcRoot();">
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="3" align="right">
+                              <input type="button" name="btnReset" 
+                                     value="        Reset        " onClick="resetAll();">
+                           </td>
+                        </tr>
+                     </table>
+                  </form>
+               </div>
+            </article>
+            <article>
+               <h3>Results</h3>
+               <div>
+                  <form name="results">
+                     <table>
+                        <tr>
+                           <td style="text-align:  right;"><label>Hindemith Root:</label></td>
+                           <td><div id="hindemith">&nbsp;</div></td>
+                        </tr>
+                        <tr>
+                           <td style="text-align:  right;"><label>Hindemith Group:</label></td>
+                           <td><div id="category">&nbsp;</div></td>
+                        </tr>
+                        <tr>
+                           <td style="text-align:  right;"><label>Hanson:</label></td>
+                           <td><div id="hanson">&nbsp;</div></td>
+                        </tr>
+                        <tr>
+                           <td style="text-align:  right;"><label>Forte Name:</label></td>
+                           <td><div id="forte">&nbsp;</div></td>
+                        </tr>
+                     </table>
+                  </form>
+               </div>
+            </article>
+         </div>      
+      </section>
+
+ <footer class="view">
+	<p>Copyright &COPY; 2014 by iván fernández la banca.  All Rights Reserved.</p>
+  <p>Montevideo, Uruguay</p>
+  <p>Última Actualización: 18 de Diciembre de 2014</p>
+ </footer>
+   </body>
+</html>
